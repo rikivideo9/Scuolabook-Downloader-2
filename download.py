@@ -9,10 +9,10 @@ try:
     input = raw_input
 except NameError:
     pass
-session = input("Your '_turner_session' key: ")
+session = input("Your '_reader_session' key: ")
 cache = "/tmp/"
 
-header = {'X-Requested-With': 'XMLHttpRequest','Accept': 'application/json, text/javascript, */*; q=0.01','Cookie': '_turner_session=' + session}
+header = {'X-Requested-With': 'XMLHttpRequest','Accept': 'application/json, text/javascript, */*; q=0.01','Cookie': '_reader_session=' + session}
 books = {}
 data = requests.get("https://webapp.scuolabook.it/books", headers=header).text
 for i in range(len(re.findall('"id":(.*?),', data))):
